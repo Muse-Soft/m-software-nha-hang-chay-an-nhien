@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>An Nhiên — Ẩm thực chay tại Hà Nội</title>
+<meta name="description" content="Nhà hàng chay An Nhiên tại Hà Nội: thực đơn theo ngày, combo gia đình, đặt bàn trực tuyến. Mở cửa 10:00–22:00 hằng ngày.">
+<style>
+:root{
+  --wood:#7B5B3A; --wood-dark:#5C4226; --moss:#5F7A5A; --moss-light:#E7EDE3;
+  --cream:#FAF6EF; --paper:#FFFFFF; --ink:#2E2A24; --muted:#7A7166; --gold:#C9A86A;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:16px;line-height:1.6}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;color:var(--wood-dark);line-height:1.3}
+a{color:var(--moss)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+header{position:sticky;top:0;z-index:20;background:var(--wood-dark);color:#fff}
+header .wrap{display:flex;align-items:center;gap:16px;min-height:60px}
+.logo{font-family:Georgia,serif;font-size:20px;font-weight:700;color:#fff;text-decoration:none;white-space:nowrap}
+nav{margin-left:auto;display:flex;gap:18px;flex-wrap:wrap}
+nav a{color:#fff;text-decoration:none}
+.btn{display:inline-block;min-height:44px;line-height:44px;padding:0 22px;border-radius:999px;background:var(--wood);color:#fff;text-decoration:none;border:0;cursor:pointer;font-size:16px;text-align:center}
+.btn.secondary{background:var(--moss)}
+.btn.ghost{background:transparent;border:1px solid var(--wood);color:var(--wood)}
+.menu-btn{display:none;margin-left:auto;background:none;border:1px solid #fff;color:#fff;border-radius:8px;min-height:44px;padding:0 14px;font-size:18px}
+section{padding:56px 0}
+section.alt{background:var(--moss-light)}
+h2{font-size:24px;margin:0 0 8px}
+.lead{color:var(--muted);margin:0 0 24px}
+.hero{display:grid;gap:24px;align-items:center}
+.hero h1{font-size:34px;margin:0 0 12px}
+.hero img,.space img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:16px;display:block}
+.strip{display:flex;flex-wrap:wrap;gap:12px 24px;background:var(--paper);border:1px solid var(--gold);border-radius:16px;padding:14px 18px;margin-top:20px}
+.days{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.day-btn{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--moss);background:var(--paper);color:var(--wood-dark);cursor:pointer;font-size:16px}
+.day-btn[aria-pressed="true"]{background:var(--moss);color:#fff}
+.menu-group{margin-bottom:28px}
+.menu-group h3{font-size:20px;border-bottom:2px solid var(--gold);padding-bottom:6px}
+.dish{display:flex;justify-content:space-between;gap:16px;background:var(--paper);border-radius:16px;padding:14px 16px;margin:12px 0;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.dish p{margin:0;color:var(--muted)}
+.price{white-space:nowrap;font-weight:700;color:var(--wood-dark)}
+.badge{display:inline-block;background:var(--moss-light);color:var(--moss);border-radius:999px;padding:2px 10px;font-size:13px;margin-left:6px}
+.grid{display:grid;gap:16px}
+.card{background:var(--paper);border-radius:16px;padding:20px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.card h3{margin-top:0}
+form{display:grid;gap:14px;max-width:640px}
+label{font-weight:600}
+input,select,textarea{width:100%;min-height:44px;padding:10px 12px;border:1px solid #ccc;border-radius:10px;font-size:16px;font-family:inherit}
+textarea{min-height:88px}
+.error{color:#a33a3a;font-size:15px}
+.confirm{display:none;background:var(--moss-light);border:1px solid var(--moss);border-radius:16px;padding:18px;margin-top:16px}
+.confirm.show{display:block}
+.note{font-size:15px;color:var(--muted)}
+footer{background:var(--wood-dark);color:#fff;padding:40px 0 110px}
+footer h2,footer a{color:#fff}
+.mobile-bar{display:none}
+@media (max-width:639px){
+  nav{display:none;position:absolute;top:60px;left:0;right:0;background:var(--wood-dark);flex-direction:column;padding:12px 16px}
+  nav.open{display:flex}
+  .menu-btn{display:block}
+  .btn.book-top{display:none}
+  .mobile-bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--paper);border-top:1px solid var(--gold);padding:10px 12px;gap:10px}
+  .mobile-bar .btn{flex:1}
+  section{padding:40px 0}
+}
+@media (min-width:640px){
+  .grid.cols-2,.grid.cols-3{grid-template-columns:1fr 1fr}
+  .dish-grid{grid-template-columns:1fr 1fr}
+}
+@media (min-width:1024px){
+  section{padding:80px 0}
+  h2{font-size:30px}
+  .hero{grid-template-columns:1.1fr .9fr}
+  .hero h1{font-size:44px}
+  .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+  .dish-grid{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">An Nhiên — Ẩm thực chay</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Mở menu" aria-expanded="false">☰</button>
+    <nav id="mainNav" aria-label="Menu chính">
+      <a href="#thuc-don">Thực đơn</a><a href="#combo">Combo</a><a href="#dat-ban">Đặt bàn</a><a href="#khong-gian">Không gian</a><a href="#lien-he">Liên hệ</a>
+    </nav>
+    <a class="btn book-top" href="#dat-ban">Đặt bàn</a>
+  </div>
+</header>
+
+<main id="top">
+  <section>
+    <div class="wrap hero">
+      <div>
+        <h1>Ăn chay, lòng an nhiên</h1>
+        <p>Rau tươi nấu mỗi ngày, vị thanh nhẹ, không gian xanh yên tĩnh giữa phố.</p>
+        <p><a class="btn" href="#thuc-don">Xem thực đơn hôm nay</a> <a class="btn secondary" href="#dat-ban">Đặt bàn</a></p>
+      </div>
+      <img src="https://picsum.photos/seed/annhien-hero/900/560" alt="Không gian xanh nhà hàng chay An Nhiên (ảnh mẫu)">
+    </div>
+    <div class="wrap">
+      <div class="strip"><span>🕙 Mở cửa <strong>10:00–22:00</strong> hằng ngày</span><span>📞 <a href="#lien-he">Gọi điện</a> (số điện thoại đang cập nhật — xem ghi chú cuối trang)</span></div>
+    </div>
+  </section>
+
+  <section id="thuc-don" class="alt">
+    <div class="wrap">
+      <h2>Thực đơn theo ngày</h2>
+      <p class="lead">Chọn ngày để xem món. Giá dưới đây là nội dung mẫu để duyệt bố cục — chủ quán xác nhận lại trước khi public.</p>
+      <div class="days" id="dayTabs" role="group" aria-label="Chọn ngày"></div>
+      <div id="menuOut"></div>
+    </div>
+  </section>
+
+  <section id="combo">
+    <div class="wrap">
+      <h2>Combo gia đình</h2>
+      <p class="lead">Gọi một lần, đủ món cho cả nhà. Chọn combo sẽ tự điền vào form đặt bàn.</p>
+      <div class="grid cols-3">
+        <article class="card"><h3>Combo 2 người</h3><p class="price">299.000đ</p><p>2 khai vị · 2 món chính · 2 tráng miệng · trà đá</p><button class="btn" data-combo="Combo 2 người — 299.000đ">Đặt combo này</button></article>
+        <article class="card"><h3>Combo 4 người</h3><p class="price">499.000đ</p><p>3 khai vị · 4 món chính · 4 tráng miệng · trà sen</p><button class="btn" data-combo="Combo 4 người — 499.000đ">Đặt combo này</button></article>
+        <article class="card"><h3>Combo 6 người</h3><p class="price">699.000đ</p><p>Lẩu nấm An Nhiên · 4 món phụ · tráng miệng · trà sen</p><button class="btn" data-combo="Combo 6 người — 699.000đ">Đặt combo này</button></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="dat-ban" class="alt">
+    <div class="wrap">
+      <h2>Đặt bàn</h2>
+      <p class="lead">Nhà hàng sẽ gọi lại xác nhận. Giờ mở cửa 10:00–22:00.</p>
+      <form id="bookForm" novalidate>
+        <div><label for="name">Họ tên *</label><input id="name" name="name" required autocomplete="name"></div>
+        <div><label for="phone">Số điện thoại *</label><input id="phone" name="phone" type="tel" required autocomplete="tel" placeholder="Ví dụ: 0901234567"><p class="error" id="phoneErr"></p></div>
+        <div><label for="date">Ngày *</label><input id="date" name="date" type="date" required></div>
+        <div><label for="time">Giờ * (10:00–22:00)</label><input id="time" name="time" type="time" min="10:00" max="22:00" required><p class="error" id="timeErr"></p></div>
+        <div><label for="guests">Số khách *</label><input id="guests" name="guests" type="number" min="1" max="30" value="2" required></div>
+        <div><label for="combo">Chọn combo (không bắt buộc)</label>
+          <select id="combo"><option value="">— Không chọn combo —</option><option>Combo 2 người — 299.000đ</option><option>Combo 4 người — 499.000đ</option><option>Combo 6 người — 699.000đ</option></select></div>
+        <div><label for="note">Ghi chú (ăn kiêng / dị ứng)</label><textarea id="note" name="note" placeholder="Ví dụ: không cay, dị ứng đậu phộng…"></textarea></div>
+        <p class="error" id="formErr"></p>
+        <button class="btn" type="submit">Gửi yêu cầu đặt bàn</button>
+      </form>
+      <div class="confirm" id="confirmBox" role="status" aria-live="polite"></div>
+      <p class="note">Chưa có backend: form hiện chỉ kiểm tra và hiển thị xác nhận ngay trên trang; việc lưu đơn sẽ làm ở task backend riêng theo thiết kế TEC-68.</p>
+    </div>
+  </section>
+
+  <section id="khong-gian">
+    <div class="wrap">
+      <h2>Không gian An Nhiên</h2>
+      <p class="lead">Nơi ăn chay cũng là nơi nghỉ ngơi: nhiều cây, ánh sáng tự nhiên, nhạc nhẹ.</p>
+      <div class="grid cols-3">
+        <article class="card"><img src="https://picsum.photos/seed/annhien-garden/600/375" alt="Sân vườn (ảnh mẫu)"><h3>Sân vườn nhiều cây</h3><p>Ngồi ngoài trời, thoáng mát, phù hợp ăn trưa cùng gia đình.</p></article>
+        <article class="card"><img src="https://picsum.photos/seed/annhien-private/600/375" alt="Phòng riêng (ảnh mẫu)"><h3>Phòng riêng yên tĩnh</h3><p>Dành cho nhóm nhỏ, sinh nhật chay, gặp mặt thân mật.</p></article>
+        <article class="card"><img src="https://picsum.photos/seed/annhien-tea/600/375" alt="Góc trà (ảnh mẫu)"><h3>Góc trà &amp; đọc sách</h3><p>Trà sen sau bữa ăn, kệ sách mở, ngồi lại bao lâu cũng được.</p></article>
+      </div>
+      <p>An Nhiên nấu chay theo triết lý đơn giản: rau củ tươi theo mùa, nêm nếm nhẹ để giữ vị gốc, mỗi món đều có thể ăn mỗi ngày mà không ngán. Quán không dùng bột ngọt quá tay, ưu tiên nguyên liệu địa phương.</p>
+    </div>
+  </section>
+</main>
+
+<footer id="lien-he">
+  <div class="wrap">
+    <h2>Liên hệ</h2>
+    <p>Địa chỉ: đang cập nhật — vui lòng gọi điện xác nhận.<br>Giờ mở cửa: 10:00–22:00 hằng ngày.</p>
+    <p><a class="btn secondary" href="#lien-he">Gọi điện</a> <span class="note" style="color:#ddd">Số điện thoại đang cập nhật — nút sẽ trỏ tới tel:&lt;số thật&gt; khi PO/chủ quán cung cấp.</span></p>
+    <p><a href="#thuc-don">Thực đơn</a> · <a href="#dat-ban">Đặt bàn</a> · <a href="#khong-gian">Không gian</a></p>
+    <p class="note" style="color:#ddd">Ảnh và giá trên trang là nội dung mẫu theo thiết kế TEC-68, thay bằng ảnh thật và giá thật trước khi public.</p>
+  </div>
+</footer>
+
+<div class="mobile-bar"><a class="btn ghost" href="#lien-he">Gọi điện</a><a class="btn" href="#dat-ban">Đặt bàn</a></div>
+
+<script>
+var MENUS = {
+  "Thứ 2": { "Khai vị": [["Gỏi cuốn rau củ","Rau tươi, đậu hũ, nước chấm tương","45.000đ",""],["Súp bí đỏ","Nấu kem hạt điều, thơm nhẹ","39.000đ","Bán chạy"]],
+    "Món chính": [["Cơm sen nấm","Sen, nấm hương, rau củ xào","75.000đ",""],["Lẩu nấm An Nhiên","5 loại nấm, rau theo mùa","129.000đ/người","Món signature"],["Đậu hũ sốt nấm","Đậu hũ non, sốt nấm đậm đà","69.000đ",""]],
+    "Tráng miệng": [["Chè sen long nhãn","Ngọt thanh, ít đường","35.000đ",""],["Rau câu dừa","Dừa tươi, mát nhẹ","29.000đ",""]] },
+  "Thứ 3": { "Khai vị": [["Nem rau củ giòn","Cuốn rau củ chiên giòn","42.000đ",""],["Salad rau mầm","Rau mầm, sốt mè rang","45.000đ",""]],
+    "Món chính": [["Cơm gạo lứt rau củ","Gạo lứt, rau củ theo mùa","72.000đ",""],["Canh chua nấm","Nấm, đậu bắp, giá, me","65.000đ",""],["Nấm kho tiêu xanh","Nấm đùi gà kho tiêu","68.000đ","Cay nhẹ"]],
+    "Tráng miệng": [["Sữa chua hạt sen","Hạt sen, sữa chua nhà làm","32.000đ",""],["Trái cây theo mùa","Trái cây tươi cắt sẵn","38.000đ",""]] },
+  "Thứ 4": { "Khai vị": [["Gỏi ngó sen","Ngó sen, cà rốt, rau thơm","48.000đ",""],["Súp ngô ngọt","Ngô ngọt, nấm rơm","39.000đ",""]],
+    "Món chính": [["Bún riêu chay","Đậu hũ, cà chua, rau sống","62.000đ","Bán chạy"],["Cơm chiên trái thơm","Cơm chiên thơm, hạt điều","70.000đ",""],["Rau củ luộc chấm kho quẹt chay","Rau theo mùa, kho quẹt chay","58.000đ",""]],
+    "Tráng miệng": [["Chè đậu xanh","Đậu xanh, nước cốt dừa","30.000đ",""],["Bánh flan chay","Trứng chay, caramel","33.000đ",""]] },
+  "Thứ 5": { "Khai vị": [["Chả giò chay","Nhân nấm, miến, rau củ","44.000đ",""],["Gỏi bưởi tôm chay","Bưởi, tôm chay, rau thơm","49.000đ",""]],
+    "Món chính": [["Phở chay","Nước dùng rau củ, nấm, đậu hũ","64.000đ",""],["Cà ri rau củ","Cà ri vàng, bánh mì","74.000đ","Cay nhẹ"],["Đậu hũ chiên sả","Đậu hũ giòn, sả ớt","66.000đ",""]],
+    "Tráng miệng": [["Chè trôi nước chay","Bột nếp, đậu xanh, gừng","34.000đ",""],["Kem dừa","Kem dừa nhà làm","36.000đ",""]] },
+  "Thứ 6": { "Khai vị": [["Bánh cuốn chay","Nấm mèo, đậu hũ, hành phi chay","46.000đ",""],["Súp rong biển","Rong biển, đậu hũ non","40.000đ",""]],
+    "Món chính": [["Lẩu thái chay","Chua cay nhẹ, nấm, rau","119.000đ/người","Món signature"],["Mì xào giòn chay","Mì giòn, rau củ, nấm","68.000đ",""],["Cơm tấm chay","Sườn chay, bì chay, chả chay","72.000đ","Bán chạy"]],
+    "Tráng miệng": [["Chè ba màu","Đậu, thạch, cốt dừa","35.000đ",""],["Panna cotta dừa","Dừa, kem chay","38.000đ",""]] },
+  "Thứ 7": { "Khai vị": [["Gỏi cuốn nấm","Nấm, rau thơm, bún","46.000đ",""],["Súp khoai môn","Khoai môn, nấm hương","40.000đ",""]],
+    "Món chính": [["Lẩu nấm An Nhiên","5 loại nấm, rau theo mùa","129.000đ/người","Món signature"],["Cơm sen nấm","Sen, nấm hương, rau củ xào","75.000đ",""],["Nấm nướng giấy bạc","Nấm tổng hợp, sốt tiêu","78.000đ",""]],
+    "Tráng miệng": [["Chè sen long nhãn","Ngọt thanh, ít đường","35.000đ",""],["Rau câu dừa","Dừa tươi, mát nhẹ","29.000đ",""]] },
+  "Chủ nhật": { "Khai vị": [["Gỏi cuốn rau củ","Rau tươi, đậu hũ, nước chấm tương","45.000đ",""],["Salad rau mầm","Rau mầm, sốt mè rang","45.000đ",""]],
+    "Món chính": [["Lẩu nấm An Nhiên","5 loại nấm, rau theo mùa","129.000đ/người","Món signature"],["Cơm gạo lứt rau củ","Gạo lứt, rau củ theo mùa","72.000đ",""],["Đậu hũ sốt nấm","Đậu hũ non, sốt nấm đậm đà","69.000đ",""]],
+    "Tráng miệng": [["Chè đậu xanh","Đậu xanh, nước cốt dừa","30.000đ",""],["Trái cây theo mùa","Trái cây tươi cắt sẵn","38.000đ",""]] }
+};
+var DAYS = ["Chủ nhật","Thứ 2","Thứ 3","Thứ 4","Thứ 5","Thứ 6","Thứ 7"];
+var tabsEl = document.getElementById("dayTabs"), outEl = document.getElementById("menuOut");
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+function renderMenu(day){
+  var m = MENUS[day], html = "<h3>Thực đơn " + day + "</h3>";
+  Object.keys(m).forEach(function(group){
+    html += "<div class='menu-group'><h3>" + group + "</h3><div class='grid dish-grid'>";
+    m[group].forEach(function(d){
+      html += "<div class='dish'><div><strong>" + esc(d[0]) + "</strong>" + (d[3] ? "<span class='badge'>" + esc(d[3]) + "</span>" : "") + "<p>" + esc(d[1]) + "</p></div><span class='price'>" + esc(d[2]) + "</span></div>";
+    });
+    html += "</div></div>";
+  });
+  outEl.innerHTML = html;
+  Array.prototype.forEach.call(tabsEl.children, function(b){ b.setAttribute("aria-pressed", b.textContent === day ? "true" : "false"); });
+}
+DAYS.forEach(function(d){
+  var b = document.createElement("button"); b.className = "day-btn"; b.type = "button"; b.textContent = d;
+  b.onclick = function(){ renderMenu(d); }; tabsEl.appendChild(b);
+});
+renderMenu(DAYS[new Date().getDay()]);
+document.getElementById("menuBtn").onclick = function(){
+  var n = document.getElementById("mainNav"); n.classList.toggle("open");
+  this.setAttribute("aria-expanded", n.classList.contains("open"));
+};
+document.querySelectorAll("[data-combo]").forEach(function(btn){
+  btn.onclick = function(){
+    document.getElementById("combo").value = btn.getAttribute("data-combo");
+    document.getElementById("dat-ban").scrollIntoView({behavior:"smooth"});
+  };
+});
+document.getElementById("bookForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  var name = document.getElementById("name").value.trim();
+  var phone = document.getElementById("phone").value.replace(/[\s.]/g, "");
+  var date = document.getElementById("date").value, time = document.getElementById("time").value;
+  var guests = parseInt(document.getElementById("guests").value, 10);
+  var phoneOk = /^0\d{8,10}$/.test(phone), timeOk = time >= "10:00" && time <= "22:00";
+  document.getElementById("phoneErr").textContent = phoneOk ? "" : "Vui lòng nhập số điện thoại Việt Nam hợp lệ (bắt đầu bằng 0, 9–11 chữ số).";
+  document.getElementById("timeErr").textContent = timeOk ? "" : "Giờ đặt bàn phải trong 10:00–22:00.";
+  if(!name || !phoneOk || !date || !timeOk || !(guests >= 1 && guests <= 30)){
+    document.getElementById("formErr").textContent = "Vui lòng kiểm tra lại các ô bắt buộc trước khi gửi.";
+    return;
+  }
+  document.getElementById("formErr").textContent = "";
+  var box = document.getElementById("confirmBox");
+  box.innerHTML = "<strong>✅ Đã nhận yêu cầu đặt bàn!</strong><br>" + esc(name) + " · " + esc(phone) + " · " + date + " lúc " + time + " · " + guests + " khách" + (document.getElementById("combo").value ? " · " + esc(document.getElementById("combo").value) : "") + "<br>Nhà hàng sẽ gọi lại xác nhận. Giờ mở cửa 10:00–22:00.";
+  box.classList.add("show");
+});
+</script>
+</body>
+</html>
