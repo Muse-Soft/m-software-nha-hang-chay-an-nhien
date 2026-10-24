@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>An Nhiên — Ẩm thực chay | Thiết kế mẫu TEC-68</title>
+<style>
+:root{--wood:#7B5B3A;--wood-dark:#5C4226;--moss:#5F7A5A;--moss-light:#E7EDE3;--cream:#FAF6EF;--ink:#2E2A24;--muted:#7A7166;--gold:#C9A86A}
+*{box-sizing:border-box}body{margin:0;font-family:"Be Vietnam Pro",system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;font-size:16px}
+a{color:var(--moss)}header{position:sticky;top:0;background:#fff;border-bottom:1px solid #e8dfd0;z-index:10}
+.nav{max-width:1120px;margin:auto;padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:Georgia,serif;font-size:24px;color:var(--wood-dark);text-decoration:none}
+.logo span{color:var(--moss);font-size:14px;display:block;font-family:system-ui}
+.navlinks{display:none;gap:20px}.btn{display:inline-block;background:var(--wood);color:#fff!important;text-decoration:none;padding:12px 22px;border-radius:999px;min-height:44px;border:0;cursor:pointer;font-size:16px}
+.btn.moss{background:var(--moss)}main{max-width:1120px;margin:auto;padding:0 16px 96px}
+.hero{padding:40px 0;display:grid;gap:20px}.hero h1{font-family:Georgia,serif;color:var(--wood-dark);font-size:32px;line-height:1.25;margin:0 0 12px}
+.hero img,.space img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:16px}
+.strip{background:var(--moss-light);border-radius:12px;padding:14px 16px;margin:8px 0 0}
+section{padding:56px 0 0}h2{font-family:Georgia,serif;color:var(--wood-dark);font-size:24px;margin:0 0 8px}
+.lead{color:var(--muted);margin:0 0 20px}.days{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.days button{padding:10px 14px;min-height:44px;border-radius:999px;border:1px solid var(--wood);background:#fff;color:var(--wood-dark);cursor:pointer}
+.days button[aria-pressed="true"]{background:var(--wood);color:#fff}
+.grid{display:grid;gap:16px}.card{background:#fff;border-radius:16px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card h3{margin:0 0 12px;color:var(--wood-dark);font-family:Georgia,serif}
+.dish{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid #efe8da}
+.dish:first-of-type{border-top:0}.dish b{display:block}.dish small{color:var(--muted)}
+.price{color:var(--wood-dark);font-weight:700;white-space:nowrap}
+.badge{font-size:12px;background:var(--moss-light);color:var(--moss);border-radius:999px;padding:2px 8px}
+.combo .price{font-size:22px;color:var(--wood)}form{display:grid;gap:12px;background:#fff;padding:20px;border-radius:16px}
+label{font-weight:600}input,select,textarea{width:100%;padding:12px;min-height:44px;border:1px solid #ddd;border-radius:10px;font-size:16px}
+footer{background:var(--wood-dark);color:#fff;padding:32px 16px;margin-top:56px}
+footer .wrap{max-width:1120px;margin:auto}footer a{color:#fff}
+.stickybar{position:fixed;left:0;right:0;bottom:0;display:flex;gap:8px;padding:10px 12px;background:#fff;border-top:1px solid #e8dfd0;z-index:20}
+.stickybar a{flex:1;text-align:center}
+.note{background:#fff8e1;border:1px solid var(--gold);border-radius:12px;padding:12px 16px;margin-top:20px;font-size:14px}
+@media(min-width:640px){.navlinks{display:flex}.grid.cols2{grid-template-columns:1fr 1fr}.stickybar{display:none}main{padding-bottom:40px}}
+@media(min-width:1024px){.hero{grid-template-columns:1fr 1fr;align-items:center}.hero h1{font-size:44px}h2{font-size:32px}.grid.cols3{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<header><div class="nav"><a class="logo" href="#">An Nhiên<span>Ẩm thực chay</span></a>
+<nav class="navlinks"><a href="#thuc-don">Thực đơn</a><a href="#combo">Combo</a><a href="#dat-ban">Đặt bàn</a><a href="#khong-gian">Không gian</a></nav>
+<a class="btn" href="#dat-ban">Đặt bàn</a></div></header>
+<main>
+<div class="hero"><div><h1>Ăn chay, lòng an nhiên</h1>
+<p>Rau tươi nấu mỗi ngày, vị thanh nhẹ, không gian xanh yên tĩnh giữa phố.</p>
+<p><a class="btn" href="#thuc-don">Xem thực đơn hôm nay</a> <a class="btn moss" href="#dat-ban">Đặt bàn</a></p></div>
+<img src="https://picsum.photos/seed/annhien-hero/900/560" alt="Không gian xanh nhà hàng chay An Nhiên (ảnh mẫu)"></div>
+<div class="strip">🕙 Mở cửa <b>10:00–22:00</b> hằng ngày · 📞 <a href="#lien-he">Gọi điện</a> (số điện thoại đang cập nhật — xem ghi chú cuối trang)</div>
+
+<section id="thuc-don"><h2>Thực đơn theo ngày</h2><p class="lead">Chọn ngày để xem món. Giá dưới đây là nội dung mẫu để duyệt bố cục.</p>
+<div class="days" role="group" aria-label="Chọn ngày">
+<button aria-pressed="true">Thứ 2</button><button>Thứ 3</button><button>Thứ 4</button><button>Thứ 5</button><button>Thứ 6</button><button>Thứ 7</button><button>Chủ nhật</button></div>
+<div class="grid cols2 cols3">
+<div class="card"><h3>🥗 Khai vị</h3>
+<div class="dish"><div><b>Gỏi cuốn rau củ</b><small> Rau tươi, đậu hũ, nước chấm tương</small></div><span class="price">45.000đ</span></div>
+<div class="dish"><div><b>Súp bí đỏ</b><small> Nấu kem hạt điều, thơm nhẹ</small> <span class="badge">Bán chạy</span></div><span class="price">39.000đ</span></div></div>
+<div class="card"><h3>🍲 Món chính</h3>
+<div class="dish"><div><b>Cơm sen nấm</b><small> Sen, nấm hương, rau củ xào</small></div><span class="price">75.000đ</span></div>
+<div class="dish"><div><b>Lẩu nấm An Nhiên</b><small> 5 loại nấm, rau theo mùa</small> <span class="badge">Món signature</span></div><span class="price">129.000đ/người</span></div>
+<div class="dish"><div><b>Đậu hũ sốt nấm</b><small> Đậu hũ non, sốt nấm đậm đà</small></div><span class="price">69.000đ</span></div></div>
+<div class="card"><h3>🍮 Tráng miệng</h3>
+<div class="dish"><div><b>Chè sen long nhãn</b><small> Ngọt thanh, ít đường</small></div><span class="price">35.000đ</span></div>
+<div class="dish"><div><b>Rau câu dừa</b><small> Dừa tươi, mát nhẹ</small></div><span class="price">29.000đ</span></div></div>
+</div>
+<p class="note">Lưu ý: các ngày khác trong tuần dùng cùng khung 2 khai vị / 3 món chính / 2 tráng miệng, chỉ đổi tên món — Dev triển khai theo dữ liệu thật khi có. Tab ngày ở bản mẫu này là tĩnh (minh họa).</p></section>
+
+<section id="combo"><h2>Combo gia đình</h2><p class="lead">Gọi một lần, đủ món cho cả nhà. Chọn combo sẽ tự điền vào form đặt bàn.</p>
+<div class="grid cols2 cols3">
+<div class="card combo"><h3>Combo 2 người</h3><p class="price">299.000đ</p><p>2 khai vị · 2 món chính · 2 tráng miệng · trà đá</p><a class="btn" href="#dat-ban">Đặt combo này</a></div>
+<div class="card combo"><h3>Combo 4 người</h3><p class="price">499.000đ</p><p>3 khai vị · 4 món chính · 4 tráng miệng · trà sen</p><a class="btn" href="#dat-ban">Đặt combo này</a></div>
+<div class="card combo"><h3>Combo 6 người</h3><p class="price">699.000đ</p><p>Lẩu nấm An Nhiên · 4 món phụ · tráng miệng · trà sen</p><a class="btn" href="#dat-ban">Đặt combo này</a></div>
+</div></section>
+
+<section id="dat-ban"><h2>Đặt bàn</h2><p class="lead">Nhà hàng sẽ gọi lại xác nhận. Giờ mở cửa 10:00–22:00.</p>
+<form><label>Họ tên <input required placeholder="Ví dụ: Nguyễn An"></label>
+<label>Số điện thoại <input type="tel" required placeholder="Số để nhà hàng gọi xác nhận"></label>
+<label>Ngày <input type="date" required></label>
+<label>Giờ (10:00–22:00) <input type="time" min="10:00" max="22:00" required></label>
+<label>Số khách <input type="number" min="1" max="30" value="2" required></label>
+<label>Combo (không bắt buộc) <select><option>Không chọn combo</option><option>Combo 2 người — 299.000đ</option><option>Combo 4 người — 499.000đ</option><option>Combo 6 người — 699.000đ</option></select></label>
+<label>Ghi chú (ăn kiêng / dị ứng) <textarea rows="3" placeholder="Ví dụ: không ăn cay, dị ứng đậu phộng"></textarea></label>
+<button class="btn" type="submit">Gửi yêu cầu đặt bàn</button></form></section>
+
+<section id="khong-gian" class="space"><h2>Không gian An Nhiên</h2><p class="lead">Nơi ăn chay cũng là nơi nghỉ ngơi: nhiều cây, ánh sáng tự nhiên, nhạc nhẹ.</p>
+<div class="grid cols2 cols3">
+<div class="card"><img src="https://picsum.photos/seed/annhien-garden/600/375" alt="Sân vườn (ảnh mẫu)"><h3>Sân vườn nhiều cây</h3><p>Ngồi ngoài trời, thoáng mát, phù hợp ăn trưa cùng gia đình.</p></div>
+<div class="card"><img src="https://picsum.photos/seed/annhien-private/600/375" alt="Phòng riêng (ảnh mẫu)"><h3>Phòng riêng yên tĩnh</h3><p>Dành cho nhóm nhỏ, sinh nhật chay, gặp mặt thân mật.</p></div>
+<div class="card"><img src="https://picsum.photos/seed/annhien-tea/600/375" alt="Góc trà (ảnh mẫu)"><h3>Góc trà &amp; đọc sách</h3><p>Trà sen sau bữa ăn, kệ sách mở, ngồi lại bao lâu cũng được.</p></div>
+</div>
+<p>An Nhiên nấu chay theo triết lý đơn giản: rau củ tươi theo mùa, nêm nếm nhẹ để giữ vị gốc, mỗi món đều có thể ăn mỗi ngày mà không ngán. Quán không dùng bột ngọt quá tay, ưu tiên nguyên liệu địa phương.</p></section>
+</main>
+<footer id="lien-he"><div class="wrap"><h2 style="color:#fff">Liên hệ</h2>
+<p>📍 Địa chỉ: đang cập nhật — vui lòng gọi điện xác nhận trước khi đến.<br>
+🕙 Giờ mở cửa: 10:00–22:00 hằng ngày.<br>
+📞 <a href="#lien-he">Gọi điện</a> — số điện thoại đang cập nhật.</p>
+<div class="note" style="color:#2E2A24"><b>Ghi chú bàn giao (TEC-68):</b> địa chỉ, số điện thoại, ảnh và giá món trong trang mẫu này là placeholder/nội dung mẫu. Dev thay bằng thông tin thật của quán trước khi public — xem <code>DESIGN.md</code>.</div>
+</div></footer>
+<div class="stickybar"><a class="btn moss" href="#lien-he">📞 Gọi điện</a><a class="btn" href="#dat-ban">Đặt bàn</a></div>
+</body></html>
