@@ -1,19 +1,23 @@
-# Nhà hàng chay An Nhiên
+# An Nhiên
 
-Trang web nhà hàng chay An Nhiên tại Hà Nội (yêu cầu web MSR-10, Epic TEC-67).
+Trang giới thiệu (landing page) **tĩnh** — nhà hàng chay An Nhiên tại Hà Nội: thực đơn theo ngày, combo gia đình, đặt bàn trực tuyến. Mở cửa 10:00–22:00 hằng ngày. Trang được dựng bằng HTML, CSS và JavaScript thuần, không cần bước biên dịch.
 
-## Chạy thử
-Mở `index.html` trong trình duyệt (trang tĩnh, không cần build).
+> Mọi tên, số điện thoại, địa chỉ và số liệu trên trang đều là **dữ liệu mẫu**. Giá hiển thị là **giá mẫu**. Biểu mẫu (nếu có) chỉ là giao diện minh họa: không gửi dữ liệu đi đâu và không có backend.
 
-## Nội dung
-- Thực đơn theo ngày (Thứ 2–Chủ nhật), mỗi ngày 2 khai vị / 3 món chính / 2 tráng miệng kèm giá; combo gia đình 2 / 4 / 6 người.
-- Form đặt bàn: họ tên, số điện thoại, ngày, giờ (10:00–22:00), số khách, combo, ghi chú — có kiểm tra và xác nhận ngay trên trang.
-- Giới thiệu không gian; giờ mở cửa 10:00–22:00 hằng ngày.
+**Demo trực tuyến:** https://m-software-nha-hang-chay-an-nhien.genalpha.dev
+**Giấy phép:** [MIT](LICENSE) © M-Software
 
-## Lưu ý trước khi public (theo thiết kế TEC-68)
-- Địa chỉ và số điện thoại thật chưa có: trang đang dùng placeholder rõ ràng, nút Gọi điện hiện trỏ về mục Liên hệ.
-- Ảnh (picsum) và giá là nội dung mẫu: thay bằng ảnh thật và giá thật trước khi public.
-- Chưa có backend: form chưa lưu đơn; việc lưu đơn làm ở task backend riêng.
+## Cách xem
 
-## Thiết kế
-Xem `design/DESIGN.md` (TEC-68) và bản mẫu `design/index.html`.
+Mở `index.html` bằng trình duyệt (nhấp đúp, không cần máy chủ), hoặc mở liên kết demo ở trên. Giữ nguyên các tệp cùng thư mục vì liên kết là tương đối.
+
+| Tệp | Nội dung |
+|---|---|
+| `README.md` | Tài liệu giới thiệu này |
+| `index.html` | Trang chính |
+
+## English
+
+A **static** landing page for An Nhiên, built with plain HTML, CSS and JavaScript. All names, contact details and figures shown are sample data, displayed prices are sample prices, and any form is interface-only — nothing is submitted and there is no backend. Open `index.html` in a browser. Licensed under MIT.
+
+Contact: contact@genalpha.dev
